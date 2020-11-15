@@ -1,3 +1,4 @@
+
 #include "HX711.h"
 #include<Wire.h>
 #include <SoftwareSerial.h>
@@ -8,7 +9,6 @@ const int LOADCELL_DOUT_PIN = 2;
 const int LOADCELL_SCK_PIN = 3;
 
 long reading = 0;
-long nr;
 
 HX711 scale;
 
@@ -24,11 +24,9 @@ if (scale.is_ready()) {
     reading=reading*-1;
     reading=reading/9;
     reading=reading/100;
-    nr=reading*0.5+nr*0.5;
-    Serial.println(". 0");
-    Serial.print("position ");
+
     Serial.println(reading);
-    reading=nr;
+
 
   } else {
     //Serial.println("HX711 not found.");
